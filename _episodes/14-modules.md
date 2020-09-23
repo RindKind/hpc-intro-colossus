@@ -174,8 +174,12 @@ Let's examine the output of `module avail` more closely.
 > >
 > > ```
 > > #!/bin/bash
-> > 
-> > module load python3
+> > #SBATCH --account=p33_norment
+> > #SBATCH --mem-per-cpu=1
+> > #SBATCH --time=00:10:00
+> >
+> > module purge 
+> > module load Python/3.8.2-GCCcore-9.3.0
 > > 
 > > python3 --version
 > > ```
