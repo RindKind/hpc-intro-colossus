@@ -212,49 +212,6 @@ it is more common for nodes to connect to a shared, remote fileserver or cluster
 > {: .solution}
 {: .challenge}
 
-> ## Explore The Head Node
->
-> Now compare the resources of your computer with those of the head node.
->
-> > ## Solution
-> >
-> > ```
-> > {{ site.local.prompt }} ssh {{ site.remote.user }}@{{ site.remote.login }}
-> > {{ site.remote.prompt }} nproc --all
-> > {{ site.remote.prompt }} free -m
-> > ```
-> > {: .bash}
-> >
-> > You can get more information about the processors using `lscpu`,
-> > and a lot of detail about the memory by reading the file `/proc/meminfo`:
-> >
-> > ```
-> > {{ site.remote.prompt }} less /proc/meminfo
-> > ```
-> > {: .bash}
-> >
-> > You can also explore the available filesystems using `df` to show **d**isk **f**ree space.
-> > The `-h` flag renders the sizes in a human-friendly format, i.e., GB instead of B. The **t**ype
-> > flag `-T` shows what kind of filesystem each resource is.
-> >
-> > ```
-> > {{ site.remote.prompt }} df -Th
-> > ```
-> > {: .bash}
-> >
-> > > The local filesystems (ext, tmp, xfs, zfs) will depend on whether you're on the same login
-> > > node (or compute node, later on). Networked filesystems (beegfs, cifs, gpfs, nfs, pvfs) will
-> > > be similar -- but may include yourUserName, depending on how it is [mounted](
-> > > https://en.wikipedia.org/wiki/Mount_(computing)).
-> > {: .discussion}
-> > 
-> > > ## Shared file systems
-> > > 
-> > > This is an important point to remember: files saved on one node (computer) are often available
-> > > everywhere on the cluster!
-> > {: .callout}
-> {: .solution}
-{: .challenge}
 
 {% include {{ site.snippets }}/12/specific-node-info.snip %}
 
