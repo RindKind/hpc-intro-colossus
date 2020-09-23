@@ -103,13 +103,13 @@ Password for xx-user@TSD.USIT.NO:
 
 State Codes
 
-| Status        | Code  | Explaination                                                           |
-| ------------- | :---: | ---------------------------------------------------------------------- |
-| COMPLETED	| `CD`	| The job has completed successfully.                                    |
-| COMPLETING	| `CG`	| The job is finishing but some processes are still active.              |
-| FAILED	| `F`	| The job terminated with a non-zero exit code and failed to execute.    |
-| PENDING	| `PD`	| The job is waiting for resource allocation. It will eventually run.    |
-| PREEMPTED	| `PR`	| The job was terminated because of preemption by another job.           |
-| RUNNING	| `R`	| The job currently is allocated to a node and is running.               |
-| SUSPENDED	| `S`	| A running job has been stopped with its cores released to other jobs.  |
-| STOPPED	| `ST`	| A running job has been stopped with its cores retained.                |
+| Status        | Code  | Explaination                                                                  |
+| ------------- | :---: | ----------------------------------------------------------------------        |
+| COMPLETED	| `CD`	| The job has completed successfully.                                           |
+| COMPLETING	| `CG`	| The job is finishing but some processes are still active (e.g.copying files). |
+| FAILED	| `F`	| The job terminated with a non-zero exit code and failed to execute.           |
+| PENDING	| `PD`	| The job is waiting for resource allocation. It will eventually run.           |
+| PREEMPTED	| `PR`	| The job was terminated because of preemption by another job.                  |
+| RUNNING	| `R`	| The job currently is allocated to a node and is running.                      |
+| SUSPENDED	| `S`	| A running job has been stopped with its cores released to other jobs.         |
+| STOPPED	| `ST`	| A running job has been stopped with its cores retained.                       |
