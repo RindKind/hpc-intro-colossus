@@ -50,3 +50,22 @@ Valid starting       Expires              Service principal
 
 ```
 {: .bash}
+
+
+```
+-bash: cd: /cluster/project/p33: No such file or directory
+
+```
+{: .output}
+
+The above outputs indicates that yu have nt obtained a key or your Kerberos key has expired.
+If you face the error use the **knit** command to obtain a key
+
+```
+-bash-4.2$ knit
+Password for xx-user@TSD.USIT.NO:
+
+-bash-4.2$ module init
+
+```
+{: .bash}
