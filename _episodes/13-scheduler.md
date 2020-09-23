@@ -66,22 +66,14 @@ whichever you prefer. Unsure? `nano` is a pretty good, basic choice.
 ```
 #!/bin/bash
 
-# Job name:
-#SBATCH --job-name=Testjob
 # Project:
 #SBATCH --account=p33_norment
-# Nodes:
-#SBATCH --nodes=1
-# Cores:
-#SBATCH --ntasks=1
+
+# Memory:
+#SBATCH --mem-per-cpu=1
+
 # Wall clock limit:
 #SBATCH --time=00:10:00
-# Max memory usage:
-#SBATCH --mem-per-cpu=4G
-
-## Set up job environment:
-module purge   # clear any inherited modules
-set -o errexit # exit on errors
 
 echo -n "This script is running on "
 hostname
@@ -181,11 +173,27 @@ script:
 
 ```
 #!/bin/bash
-{{ site.sched.comment }} {{ site.sched.flag.name }} new_name
+
+# Job name:
+#SBATCH --job-name=Testjob
+# Project:
+#SBATCH --account=p33_norment
+# Nodes:
+#SBATCH --nodes=1
+# Cores:
+#SBATCH --ntasks=1
+# Wall clock limit:
+#SBATCH --time=00:10:00
+# Max memory usage:
+#SBATCH --mem-per-cpu=4G
+
+## Set up job environment:
+module purge   # clear any inherited modules
+set -o errexit # exit on errors
 
 echo -n "This script is running on "
 hostname
-echo "This script has finished successfully."
+
 ```
 {: .output}
 
@@ -201,26 +209,6 @@ and monitor it:
 
 Fantastic, we've successfully changed the name of our job!
 
-> ## Setting up email notifications
-> 
-> Jobs on an HPC system might run for days or even weeks. We probably have better things to do than
-> constantly check on the status of our job with `{{ site.sched.status }}`. Looking at the
-> manual page for `{{ site.sched.submit.name }}`, can you set up our test job to send you an email
-> when it finishes?
->
-> > ## Hint
-> >
-> > You can use the *manual pages* for {{ site.sched.name }} utilities to find more about their
-> > capabilities. On the command line, these are accessed through the `man` utility: run 
-> > `man <program-name>`. You can find the same information online by searching 
-> > "man <program-name>".
-> >
-> > ```
-> > {{ site.remote.prompt }} man {{ site.sched.submit.name }}
-> > ```
-> > : .bash}
-> {: .solution}
-{: .challenge}
 
 ### Resource requests
 
