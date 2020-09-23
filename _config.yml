@@ -26,14 +26,14 @@ local:
   prompt: "[user@laptop ~]$"
 
 remote:
-  name: "Graham"
-  login: "graham.computecanada.ca"
-  host: "gra-login1"
+  name: "login.tl.tsd.usit.no/"
+  login: "p33-tl01-l.tsd.usit.no"
+  host: "p33-tl01-l.tsd.usit.no"
   node: "aci-377"
-  location: "University of Waterloo"
-  homedir: "/home"
-  user: "yourUsername"
-  prompt: "[yourUsername@gra-login1 ~]$"
+  location: "TSD"
+  homedir: "/tsd/p33/home/p33-user1"
+  user: "user1"
+  prompt: "-bash-4.1$ "
 
 sched:
   name: "SLURM"
@@ -45,19 +45,18 @@ sched:
     testing: "testing"
   status: "squeue"
   flag:
-    user: "-u yourUsername"
+    user: "-u $USER"
     interactive: ""
-    histdetail: "-l -j"
-    name: "-J"
-    time: "-t"
-    queue: "-p"
-    nodes: "-N"
-    tasks: "-n"
+    histdetail: "--job-name"
+    name: "--job-name"
+    time: "--time"
+    nodes: "--nodes"
+    tasks: "--ntasks"
   del: "scancel"
   interactive: "srun"
   info: "sinfo"
   comment: "#SBATCH"
-  hist: "sacct -u yourUsername"
+  hist: "sacct -u $USER"
 
 #------------------------------------------------------------
 # Values for this lesson
