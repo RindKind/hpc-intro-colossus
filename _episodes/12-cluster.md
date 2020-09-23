@@ -161,7 +161,7 @@ directly, they enable a number of key features like ensuring our user account an
 available throughout the HPC system.
 
 ## What's in a node? 
-
+**This section will be demonstrated by the admin**
 All of the nodes in an HPC system have the same components as your own laptop or desktop: *CPUs*
 (sometimes also called *processors* or *cores*), *memory* (or *RAM*), and *disk* space. CPUs are a
 computer's tool for actually running programs and calculations. Information about a current task is
