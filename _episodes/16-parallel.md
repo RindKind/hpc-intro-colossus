@@ -80,9 +80,15 @@ Create a submission file, requesting more than one task on a single node:
 ```
 #!/bin/bash
 {{ site.sched.comment }} {{ site.sched.flag.name }} parallel-example
-{{ site.sched.comment }} {{ site.sched.flag.queue }} {{ site.sched.queue.testing }}
+#SBATCH --account=p33_norment
+#SBATCH --mem-per-cpu=1
+#SBATCH --time=00:10:00
 {% include {{ site.snippets }}/pll/four-tasks.snip %}
-module load python3
+
+module purge   
+set -o errexit 
+
+module load Python/3.8.2-GCCcore-9.3.0
 mpirun ./pi.py
 ```
 {: .output}
