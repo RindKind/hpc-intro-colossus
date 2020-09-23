@@ -26,9 +26,9 @@ local:
   prompt: "[user@laptop ~]$"
 
 remote:
-  name: "login.tl.tsd.usit.no/"
-  login: "p33-tl01-l.tsd.usit.no"
-  host: "p33-tl01-l.tsd.usit.no"
+  name: "p33-tl01-l.tsd.usit.no"
+  login: "p33-submit.tsd.usit.no"
+  host: "p33-submit.tsd.usit.no"
   node: "aci-377"
   location: "TSD"
   homedir: "/tsd/p33/home/p33-user1"
