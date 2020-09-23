@@ -69,3 +69,34 @@ Password for xx-user@TSD.USIT.NO:
 
 ```
 {: .bash}
+
+
+### How to interpret output of "squeue", "qsumm" and "cost" commands
+
+#### squeue
+
+```
+-bash-4.2$ squeue
+
+```
+{: .bash}
+
+
+```
+           JOBID PARTITION     NAME     USER ST         TIME  NODES NODELIST(REASON)
+           4015649    normal MPsf     nobody PD         0:00      1 (AssocGrpBillingMinutes)
+           4132215    normal 20efef   p33-yttt PD       0:00      1 (Resources)
+           4132216    normal ertre    p33-yuuu PD       0:00      1 (Priority)
+           .............
+           .............
+           4121987    normal convertx p33-mmm  PD       0:00      1 (launch failed requeued held)
+           .............
+           .............
+           4131791    normal 2sfs7-0. p33-yyyy  R    2:34:55      1 c2-3
+           4131785    normal 20fsd50. p33-yxxx  R    2:35:28      1 c2-3
+           .............
+           .............
+
+```
+{: .output}
+
