@@ -148,11 +148,9 @@ scheduler (the scheduler used in this lesson is called {{ site.workshop.sched.na
 more about how to use the scheduler to submit jobs next, but for now, it can also tell us more
 information about the worker nodes.
 
-For example, we can view all of the worker nodes with the `{{ site.sched.info }}` command.
+For example, we can view all of the worker nodes with the `{{ site.sched.info }}` (not available from VM) 
+ command.
 
-```
-{{ site.remote.prompt }} {{ site.sched.info }}
-```
 {: .bash}
 
 {% include {{ site.snippets }}/12/queue-info.snip %}
