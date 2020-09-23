@@ -66,6 +66,23 @@ whichever you prefer. Unsure? `nano` is a pretty good, basic choice.
 ```
 #!/bin/bash
 
+# Job name:
+#SBATCH --job-name=Testjob
+# Project:
+#SBATCH --account=p33_norment
+# Nodes:
+#SBATCH --nodes=1
+# Cores:
+#SBATCH --ntasks=1
+# Wall clock limit:
+#SBATCH --time=00:10:00
+# Max memory usage:
+#SBATCH --mem-per-cpu=4G
+
+## Set up job environment:
+module purge   # clear any inherited modules
+set -o errexit # exit on errors
+
 echo -n "This script is running on "
 hostname
 ```
