@@ -23,7 +23,7 @@
 snippets: "/snippets_library/Colossus"
 
 local:
-  prompt: "[user@laptop ~]$"
+  prompt: "-bash-4.2$ "
 
 remote:
   name: "p33-submit.tsd.usit.no"
