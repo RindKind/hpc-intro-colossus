@@ -24,3 +24,13 @@ for parallelism -- this is a common tool on HPC systems.
 
 
 Is it what you expected? How good is the value for pi?
+
+##  How and when we need to use "kinit" and "module init" commands.  
+
+[Managing Data on Colossus](Managing Data on Colossus)
+For security reasons the /cluster/project/pX and /cluster/software filesystems require additional
+Kerberos authentication. Whenever you ssh into one of the submit hosts, you'll need to authenticate
+using your password. You're then given a ticket for the duration of 10 hours. Using this ticket
+you can access the filesystems without having to provide your password again for the duration
+of the ticket, when it is automatically renewed up to a week. You can list your current ticket
+status using:
