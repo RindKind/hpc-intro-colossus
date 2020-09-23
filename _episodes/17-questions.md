@@ -58,8 +58,8 @@ Valid starting       Expires              Service principal
 ```
 {: .output}
 
-The above outputs indicates that yu have nt obtained a key or your Kerberos key has expired.
-If you face the error use the **knit** command to obtain a key
+The above outputs indicates that you have not obtained a key or your Kerberos key has expired.
+If you face the error use the **knit** command to obtain a key and refresh with **module init**
 
 ```
 -bash-4.2$ knit
