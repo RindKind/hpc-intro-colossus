@@ -3,9 +3,11 @@ title: "Questions ?"
 teaching: 45
 exercises: 30
 questions:
+- "Q"
 objectives:
 - "Answers to submitted questions"
 keypoints:
+- "Q"
 ---
 
 Some 
@@ -70,3 +72,5 @@ Password for xx-user@TSD.USIT.NO:
 ```
 {: .bash}
 
+
+## How to interpret output of "squeue", "qsumm" and "cost" commands
