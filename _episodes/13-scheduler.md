@@ -210,96 +210,6 @@ and monitor it:
 Fantastic, we've successfully changed the name of our job!
 
 
-### Resource requests
-
-But what about more important changes, such as the number of cores and memory for our jobs? One 
-thing that is absolutely critical when working on an HPC system is specifying the resources 
-required to run a job. This allows the scheduler to find the right time and place to schedule our 
-job. If you do not specify requirements (such as the amount of time you need), you will likely be
-stuck with your site's default resources, which is probably not what you want.
-
-The following are several key resource requests:
-
-{% include {{ site.snippets }}/13/option-flags-list.snip %}
-
-Note that just *requesting* these resources does not make your job run faster! We'll talk more 
-about how to make sure that you're using resources effectively in a later episode of this lesson.
-
-> ## Submitting resource requests
->
-> Submit a job that will use 1 full node and 1 minute of walltime.
->
-> > ## Solution
-> >
-> > ```
-> > {{ site.remote.prompt }} cat example-job.sh
-> > ```
-> > {: .bash}
-> >
-> > ```
-> > #!/bin/bash
-> > {{ site.sched.comment }} {{ site.sched.flag.time }} 00:01:10
-> >
-> > echo -n "This script is running on "
-> > sleep 60 # time in seconds
-> > hostname
-> > echo "This script has finished successfully."
-> > ```
-> > {: .output}
-> >
-> > ```
-> > {{ site.remote.prompt }} {{ site.sched.submit.name }} {{ site.sched.submit.options }} example-job.sh
-> > ```
-> > {: .bash}
-> >
-> > Why are the {{ site.sched.name }} runtime and `sleep` time not identical?
-> {: .solution}
-{: .challenge}
-
-{% include {{ site.snippets }}/13/print-sched-variables.snip %}
-
-Resource requests are typically binding. If you exceed them, your job will be killed. Let's use
-walltime as an example. We will request 30 seconds of walltime, and attempt to run a job for two
-minutes.
-
-```
-{{ site.remote.prompt }} cat example-job.sh
-```
-{: .bash}
-
-```
-#!/bin/bash
-{{ site.sched.comment }} {{ site.sched.flag.name }} long_job
-{{ site.sched.comment }} {{ site.sched.flag.time }} 00:00:30
-
-echo -n "This script is running on ... "
-sleep 120 # time in seconds
-hostname
-echo "This script has finished successfully."
-```
-{: .output}
-
-Submit the job and wait for it to finish. Once it is has finished, check the log file.
-
-```
-{{ site.remote.prompt }} {{ site.sched.submit.name }} {{ site.sched.submit.options }} example-job.sh
-{{ site.remote.prompt }} watch -n 15 {{ site.sched.status }} {{ site.sched.flag.user }}
-```
-{: .bash}
-
-{% include {{ site.snippets }}/13/runtime-exceeded-job.snip %}
-
-{% include {{ site.snippets }}/13/runtime-exceeded-output.snip %}
-
-Our job was killed for exceeding the amount of resources it requested. Although this appears harsh,
-this is actually a feature. Strict adherence to resource requests allows the scheduler to find the
-best possible place for your jobs. Even more importantly, it ensures that another user cannot use
-more resources than they've been given. If another user messes up and accidentally attempts to use
-all of the cores or memory on a node, {{ site.sched.name }} will either restrain their job to the
-requested resources or kill the job outright. Other jobs on the node will be unaffected. This means
-that one user cannot mess up the experience of others, the only jobs affected by a mistake in
-scheduling will be their own.
-
 ## Cancelling a job
 
 Sometimes we'll make a mistake and need to cancel a job. This can be done with the 
@@ -330,13 +240,5 @@ prompt indicates that the request to cancel the job was successful.
 
 ## Other types of jobs
 
-Up to this point, we've focused on running jobs in batch mode. {{ site.sched.name }}
-also provides the ability to start an interactive session.
-
-There are very frequently tasks that need to be done interactively. Creating an entire job
-script might be overkill, but the amount of resources required is too much for a login node to
-handle. A good example of this might be building a genome index for alignment with a tool like
-[HISAT2](https://ccb.jhu.edu/software/hisat2/index.shtml). Fortunately, we can run these types of
-tasks as a one-off with `{{ site.sched.interactive }}`.
-
-{% include {{ site.snippets }}/13/using-nodes-interactively.snip %}
+* accel 
+* dragen
