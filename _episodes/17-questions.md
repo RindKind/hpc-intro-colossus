@@ -13,7 +13,7 @@ keypoints:
 
 ##  How and when we need to use "kinit" and "module init" commands.  
 
-[Managing Data on Colossus](Managing Data on Colossus)
+[Managing Data on Colossus](https://www.uio.no/english/services/it/research/sensitive-data/use-tsd/hpc/data.html)
 For security reasons the /cluster/project/pX and /cluster/software filesystems require additional
 Kerberos authentication. Whenever you ssh into one of the submit hosts, you'll need to authenticate
 using your password. You're then given a ticket for the duration of 10 hours. Using this ticket
@@ -109,7 +109,7 @@ State Codes
 | COMPLETING	| `CG`	| The job is finishing but some processes are still active (e.g.copying files). |
 | FAILED	| `F`	| The job terminated with a non-zero exit code and failed to execute.           |
 | PENDING	| `PD`	| The job is waiting for resource allocation. It will eventually run.           |
-| PREEMPTED	| `PR`	| The job was terminated because of preemption by another job.                  |
+| PREEMPTED	| `PR`	| The job was terminated because of preemption by another job [Preempt](https://slurm.schedmd.com/preempt.html).                  |
 | RUNNING	| `R`	| The job currently is allocated to a node and is running.                      |
 | SUSPENDED	| `S`	| A running job has been stopped with its cores released to other jobs.         |
 | STOPPED	| `ST`	| A running job has been stopped with its cores retained.                       |
