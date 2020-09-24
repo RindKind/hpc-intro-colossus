@@ -73,7 +73,7 @@ Password for xx-user@TSD.USIT.NO:
 
 ### How to interpret output of "squeue", "qsumm" and "cost" commands
 
-#### squeue
+**squeue**
 
 [Queue System on Colossus](https://www.uio.no/english/services/it/research/sensitive-data/use-tsd/hpc/queue-system.html)
 
@@ -125,7 +125,7 @@ State Codes
 | STOPPED	| `ST`	| A running job has been stopped with its cores retained.                       |
 
 
-#### qsumm
+**qsumm**
 [Dedicated Resources](https://www.uio.no/english/services/it/research/sensitive-data/use-tsd/hpc/dedicated-resources.html)
 
 ```
@@ -171,7 +171,8 @@ Equivalents - PEs) on Colossus.  It is updated every 5 minutes.
            for your project
 
 
-### cost
+
+**cost**
 
 ```
 -bash-4.2$ cost --details
@@ -204,3 +205,27 @@ p33      p33-sa                        0.00       0.0 %
 
 ```
 {: .output}
+
+
+### p33-specific queues
+
+-  ReservationName=aihub StartTime=2019-06-11T23:15:18 EndTime=2024-04-01T00:00:00 Duration=1755-00:44:42
+   Nodes=gpu-[2-3] NodeCnt=2 CoreCnt=128 Features=(null) PartitionName=(null) Flags=SPEC_NODES  TRES=cpu=128
+   Users=(null) Accounts=....p33,p33_aihub...
+-  ReservationName=norment_dev StartTime=2020-08-11T15:43:53 EndTime=2023-04-01T00:00:00 Duration=962-08:16:07
+   Nodes=c1-5 NodeCnt=1 CoreCnt=16 Features=(null) PartitionName=normal Flags=IGNORE_JOBS,SPEC_NODES
+     NodeName=c1-5 CoreIDs=48-63  TRES=cpu=32
+   Users=(null) Accounts=p33_norment_dev,p697_norment_dev Licenses=(null) State=ACTIVE BurstBuffer=(null) Watts=n/a
+-  ReservationName=norment StartTime=2020-09-02T13:14:30 EndTime=2023-04-01T00:00:00 Duration=940-10:45:30
+   Nodes=c1-[5-7,12],c2-[1-3] NodeCnt=7 CoreCnt=432 Features=(null) PartitionName=normal Flags=IGNORE_JOBS,SPEC_NODES
+     NodeName=c1-5 CoreIDs=0-47
+     NodeName=c1-6 CoreIDs=0-63
+     NodeName=c1-7 CoreIDs=0-63
+     NodeName=c1-12 CoreIDs=0-63
+     NodeName=c2-1 CoreIDs=0-63
+     NodeName=c2-2 CoreIDs=0-63
+     NodeName=c2-3 CoreIDs=0-63
+   TRES=cpu=864
+   Users=(null) Accounts=p33_norment,p697_norment Licenses=(null) State=ACTIVE BurstBuffer=(null) Watts=n/a
+
+
