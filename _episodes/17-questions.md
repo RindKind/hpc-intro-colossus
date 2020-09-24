@@ -297,6 +297,7 @@ sbatch --nice=100 low-priority-job.slurm
 
 
 ### Tips and tricks for selecting the right queue(?)
+[job-scripts](https://www.uio.no/english/services/it/research/sensitive-data/use-tsd/hpc/job-scripts.html)
 
 
 ### How can we best check disk space available, particularly for /cluster?
@@ -308,5 +309,20 @@ df -h /cluster/projects/p33
 ```
 {: .bash}
 
-- Diskusage file 
- - /cluster/projects/p33/cluster_disk_usage.tx  (nt updated anymore)
+- Diskusage file [Resources](https://www.uio.no/english/services/it/research/sensitive-data/use-tsd/hpc/resources.html)
+ - /cluster/projects/p33/cluster_disk_usage.txt  (nt updated anymore)
+
+
+###  What is the role of $scratch in the cluster nowadays, still useful to copy for certain jobs I guess, but when?
+  -  /cluster/project/p33 is as fast as $SCRATCH
+  - If you use $SCRATCH you must mkae sure to copy the needed outputs back to submit folder 
+    - chkfile OutputFile
+  - This provides good housekeeping
+    - Less stress on backup
+    - Temporary files do not take space
+    - Disk quota not affected
+ - If you have large number of files or big files copying to $SCRATCH will slow things down
+ - If there are millions of files involved, use local /tmp
+   - #SBATCH --gres=localtmp:20
+   - cd  $LOCALTMP
+ 
