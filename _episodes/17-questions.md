@@ -209,6 +209,8 @@ p33      p33-sa                        0.00       0.0 %
 
 ### p33-specific queues
 
+```
+
 -  ReservationName=aihub StartTime=2019-06-11T23:15:18 EndTime=2024-04-01T00:00:00 Duration=1755-00:44:42
    Nodes=gpu-[2-3] NodeCnt=2 CoreCnt=128 Features=(null) PartitionName=(null) Flags=SPEC_NODES  TRES=cpu=128
    Users=(null) Accounts=....p33,p33_aihub...
@@ -228,4 +230,53 @@ p33      p33-sa                        0.00       0.0 %
    TRES=cpu=864
    Users=(null) Accounts=p33_norment,p697_norment Licenses=(null) State=ACTIVE BurstBuffer=(null) Watts=n/a
 
+```
+{: .output}
+
+
+###  Would it be possible to make a short demo on to use a singularity container on TSD​?
+
+Sorry not today, there is no point in showing a hello world, need to show real use case.
+
+
+### When there are many jobs submitted 
+ -  I feel that we often face a problem when one user submits many jobs, and this causes long delays for
+    all other users. It would be great if the user  who need to consume a lot of Colossus resources can
+    run his jobs with low-priority or low QoS. Is there a way to do this?
+ -  Can you elaborate on how priority of jobs, between users and between batches of jobs, is determined?
+    Which factors play along, and how are these weighted?
+
+[Colossus queue system](https://www.uio.no/english/services/it/research/sensitive-data/use-tsd/hpc/queue-system.html)
+To run a job on the cluster, you submit a job script into the job queue, and the job is started when
+one or more suitable compute nodes are available. The job queue is managed by a queue system called 
+[Slurm](https://slurm.schedmd.com/).
+
+**Queue position, waiting time**
+ - Resource requested, (e.g. number of cores)
+ - Availability of the requested resource, (did you ask for a full node, GPU)
+   - Is there resource you can share with project members
+ - Whether have access to a reservation.
+ - How many jobs each user has pending in the queue
+ - How many jobs the project has pending in the queue
+ - Time requested (time waited)
+
+[Colossus queue system](https://www.uio.no/english/services/it/research/sensitive-data/use-tsd/hpc/queue-system.html)
+Colossus starts jobs by priority + backfilling, so small, short jobs can start earlier than jobs with higher priority, 
+as long as they do not delay the higher priority jobs. In addition, we have added a limit on how many jobs belonging 
+to a user increase in priority over time, to avoid a single user preventing all other users from getting jobs run by 
+submitting a large number of jobs at the same time. In this way, the priority will in effect increase for users 
+running few jobs relative to users running many jobs. This is a trade-off, and we will adjust the limit (currently 10)
+if we see that the effect is too large/small.
+
+**nice**
+--nice[=adjustment]
+    Run the job with an adjusted scheduling priority within Slurm. With no adjustment value the scheduling priority is 
+    decreased by 100. A negative nice value increases the priority, otherwise decreases it. The adjustment range is 
+    +/- 2147483645. Only privileged users can specify a negative adjustment. 
+
+```
+sbatch --nice=100 low-priority-job.slurm 
+
+```
+{: .output}
 
