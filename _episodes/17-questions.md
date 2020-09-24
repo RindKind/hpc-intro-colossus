@@ -123,3 +123,49 @@ State Codes
 | RUNNING	| `R`	| The job currently is allocated to a node and is running.                      |
 | SUSPENDED	| `S`	| A running job has been stopped with its cores released to other jobs.         |
 | STOPPED	| `ST`	| A running job has been stopped with its cores retained.                       |
+
+
+#### qsumm
+[Dedicated Resources](https://www.uio.no/english/services/it/research/sensitive-data/use-tsd/hpc/dedicated-resources.html)
+
+```
+-bash-4.2$ qsumm
+
+```
+{: .bash}
+
+
+```
+
+-bash-4.2$ qsumm
+----------------------------------
+Account          Limit  nRun nPend
+----------------------------------
+p33               1824   430  3356
+Total             1824   754  3715
+----------------------------------
+Reservation aihub:
+p33                128     0     0
+p33_aihub          128     0     0
+Total              128     9     0
+----------------------------------
+Reservation norment:
+p33_norment        432   432  1434
+Total              432   432  1434
+----------------------------------
+Reservation norment_dev:
+p33_norment_dev     16     0     0
+Total               16     0     0
+----------------------------------
+
+```
+{: .output}
+
+qsumm displays the current usage of CPUs (or rather Processor
+Equivalents - PEs) on Colossus.  It is updated every 5 minutes.
+
+- "Limit": how many PEs there are in total
+- "nRun":  how many PEs are currently used for running jobs in total and
+           for your project
+- "nPend": how many PEs worth of pending jobs there are in total and
+           for your project
