@@ -180,6 +180,7 @@ Equivalents - PEs) on Colossus.  It is updated every 5 minutes.
 ```
 {: .bash}
 
+
 ```
 Report for account p33 on Colossus
 Allocation period 2020.1 (2020-04-01 -- 2020-10-01)
@@ -280,3 +281,32 @@ sbatch --nice=100 low-priority-job.slurm
 ```
 {: .output}
 
+
+###  Tips and tricks for optimizing choice
+- Tips and tricks for optimizing choice of mem-per-cpu, and cpus-per-task 
+  (also wrt balance between risk that it stands long in queue and how quick it runs).
+
+- Ask what your program can use. Can your program use multiple threads. Providing multiple cores to a
+   program that can not run in parallel does not speed up the run time
+
+- Several ways to request cores.
+  - ntasks
+  - cpus-per-task
+  - nodes + ntasks
+  - nodes + cpus-per-task
+
+
+### Tips and tricks for selecting the right queue(?)
+
+
+### How can we best check disk space available, particularly for /cluster?
+[Data on colossus] (https://www.uio.no/english/services/it/research/sensitive-data/use-tsd/hpc/data.html)
+-  The most reliable is to use du, but this will take a lot of time if the content is big
+
+```
+df -h /cluster/projects/p33
+```
+{: .bash}
+
+- Diskusage file 
+ - /cluster/projects/p33/cluster_disk_usage.tx  (nt updated anymore)
