@@ -75,6 +75,8 @@ Password for xx-user@TSD.USIT.NO:
 
 #### squeue
 
+[Queue System on Colossus](https://www.uio.no/english/services/it/research/sensitive-data/use-tsd/hpc/queue-system.html)
+
 ```
 -bash-4.2$ squeue
 
@@ -84,7 +86,7 @@ Password for xx-user@TSD.USIT.NO:
 
 ```
            JOBID PARTITION     NAME     USER ST         TIME  NODES NODELIST(REASON)
-           4015649    normal MPsf     nobody PD         0:00      1 (AssocGrpBillingMinutes)
+           4015649    normal MPsf     p33-ddd  PD         0:00      1 (AssocGrpBillingMinutes)
            4132215    normal 20efef   p33-yttt PD       0:00      1 (Resources)
            4132216    normal ertre    p33-yuuu PD       0:00      1 (Priority)
            .............
@@ -98,6 +100,14 @@ Password for xx-user@TSD.USIT.NO:
            .............
 
 ```
+
+ - AssocGrpBillingMinutes: When a project has exceeded the PE hour (cpu hour) limit,
+                           jobs will be left pending with the reason "AssocGrpBillingMinutes".
+ - Resources: The requested resources are not disposed at the moment
+ - Priotiry : Dipending on the resources you had requested, it was better to give chance 
+              to someone else the chance before you.  So the overall queue is better managed. 
+ - launch failed requeued held :  Node fault, problem is on our side  
+
 {: .output}
 
 
