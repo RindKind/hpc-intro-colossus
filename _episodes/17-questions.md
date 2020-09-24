@@ -169,3 +169,38 @@ Equivalents - PEs) on Colossus.  It is updated every 5 minutes.
            for your project
 - "nPend": how many PEs worth of pending jobs there are in total and
            for your project
+
+
+### cost
+
+```
+-bash-4.2$ cost --details
+
+```
+{: .bash}
+
+```
+Report for account p33 on Colossus
+Allocation period 2020.1 (2020-04-01 -- 2020-10-01)
+Last updated on Thu Sep 24 10:46:33 2020
+===========================================================
+Account  Description              Billing hours  % of limit
+===========================================================
+p33      Used (finished)             1998599.34      62.5 %
+p33      Reserved (running)            22857.87       0.7 %
+p33      Pending (waiting)            773605.00      24.2 %
+p33      Available                    404937.80      12.7 %
+p33      Limit                       3200000.00     100.0 %
+===========================================================
+Account  User                Used billing hours  % of limit
+===========================================================
+p33      p33-iv                   916239.00      28.6 %
+p33      p33-to                   379347.62      11.9 %
+p33      p33-ma                   215387.20       6.7 %
+p33      p33-mam                   95010.36       3.0 %
+p33      p33-of                        0.14       0.0 %
+p33      p33-sa                        0.00       0.0 %
+===========================================================
+
+```
+{: .output}
