@@ -46,6 +46,9 @@ The scheduler used in this lesson is {{ site.sched.name }}. Although {{ site.sch
 used everywhere, running jobs is quite similar regardless of what software is being used. The exact
 syntax might change, but the concepts remain the same.
 
+## Job scripts should not contain any sensitive information 
+Job scripts should not contain any sensitive information. Especially the job name should not have personal ids
+
 ## Running a batch job
 
 The most basic use of the scheduler is to run a command non-interactively. Any command (or series 
