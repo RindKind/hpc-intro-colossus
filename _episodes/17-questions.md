@@ -100,6 +100,7 @@ Password for xx-user@TSD.USIT.NO:
            .............
 
 ```
+{: .output}
 
  - AssocGrpBillingMinutes: When a project has exceeded the PE hour (cpu hour) limit,
                            jobs will be left pending with the reason "AssocGrpBillingMinutes".
@@ -108,7 +109,6 @@ Password for xx-user@TSD.USIT.NO:
               to someone else the chance before you.  So the overall queue is better managed. 
  - launch failed requeued held :  Node fault, problem is on our side  
 
-{: .output}
 
 
 State Codes
